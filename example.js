@@ -1,6 +1,6 @@
 let getPortStatus = require("./get-port-status");
 let { portRange } = getPortStatus;
 
-(await getPortStatus(
-    portRange(3000, 10000)
-)).filter(result => !result.available);
+getPortStatus(portRange(3000, 10000)).then(result => {
+    console.log(result.filter(result => !result.available));
+});
